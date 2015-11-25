@@ -1,0 +1,9 @@
+web:
+  build: .
+  # command: ./bin/start_app.sh
+  volumes:
+    - .:/code
+  ports:
+    - "8000:8000"
+  environment:
+    QUANDL_API_KEY: 'PzPusa4DLs-XN8VffLV-'
