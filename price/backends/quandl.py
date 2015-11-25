@@ -9,12 +9,13 @@ import requests
 from expiringdict import ExpiringDict
 
 from price.settings import config
-from price.models import PriceData
-from price.util import BackendException, date_str_to_timestamp
+from price.models import PriceData, BackendException
+from price.util import date_str_to_timestamp
 
 log = logging.getLogger(__name__)
 
 _CACHE = ExpiringDict(config.quandl_cache_items, config.quandl_cache_time_secs)
+
 
 def get(symbol, allow_cached=True):
     from_cache = _CACHE.get(symbol)

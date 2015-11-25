@@ -4,7 +4,7 @@ from .util import ensure_type
 
 
 CONST_TO_BACKEND = {
-    1: quandl,
+    'quandl': quandl,
 }
 
 
@@ -12,9 +12,16 @@ def get(symbol, backend_const, allow_cached=True):
     """
     Get price information for a certain symbol.
 
+    Args:
+        symbol (str)
+        backend_const (str): Which backend to use for pricing
+
+    Kwargs:
+        allow_cached (bool): if False, always retrieve fresh data
+
     """
     ensure_type(symbol, basestring)
-    ensure_type(backend_const, int)
+    ensure_type(backend_const, basestring)
 
     backend = CONST_TO_BACKEND.get(backend_const)
 

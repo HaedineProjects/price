@@ -1,5 +1,13 @@
 from .util import ensure_type
 
+
+class BackendException(Exception):
+    """
+    Exception signaling that something bad happened within a backend.
+
+    """
+
+
 class PriceData(object):
     def __init__(self,
                  symbol,
